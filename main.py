@@ -6,6 +6,8 @@ import glob
 # ascii digits 0 to 9: integer 48 to 57 inclusive
 
 WINDOW = 40
+#STEP = 1
+STEP = 10 # Or are we meant to check every single step?
 
 # reference: https://github.com/mmcloughlin/luhn/blob/master/luhn.py#L3
 def luhn_count(a):
@@ -15,7 +17,7 @@ def luhn_count(a):
     a2 = t[0]+t[1]          #a2 doubled and divmod summed
 
     count=0
-    for i in range(len(a)):
+    for i in range(0,len(a),STEP):
         j=i+WINDOW
         # luhn checksum. Note this assumes the check digit is in place.
         odd_sum = np.sum(a[i:j][dm[i:j]][-1::-2])
