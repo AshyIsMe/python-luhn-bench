@@ -10,6 +10,7 @@ WINDOW = 40
 # reference: https://github.com/mmcloughlin/luhn/blob/master/luhn.py#L3
 def luhn_count(a):
     dm = (a>47)&(a<58)      #digitmask
+    a=a-48
     t = np.divmod(2*a,10)
     a2 = t[0]+t[1]          #a2 doubled and divmod summed
 
